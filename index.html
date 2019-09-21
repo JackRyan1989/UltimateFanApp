@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <title>The Gambling Pugilist</title>
+</head>
+
+<body>
+    <!--Basic layout: Top nav bar (sticky)
+    Title
+    Search for fight section
+    Betting section
+    User wins/losses token count section-->
+    <!--Nav bar-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">The Gambling Pugilist</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Find a Fight <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Place a Bet</a>
+                </li>   
+                <li class="nav-item active">
+                        <a class="nav-link" href="#">Tokens</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--This container will hold everything but ze navbar-->
+    <div class="container">
+        <!--Title-->
+        <div class="jumbotron text-center">
+            <span id="numFights">5</span>
+            <span>UFC fights are happening tonight. BET ON ONE.</span>
+        </div>
+
+        <!--Search section-->
+
+        <!--Betting section - two cards side by side-->
+
+        <!--Footer that pops up with user info in it-->
+
+    </div>
+
+</body>
+
+</html>
