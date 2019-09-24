@@ -13,7 +13,7 @@
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-    <title>UFC Fighter Search</title>
+    <title>UFC News</title>
 </head>
 
 <body>
@@ -47,45 +47,8 @@
             <span id="numFights">5</span>
             <span>UFC fights are happening tonight. BET ON ONE.</span>
         </div>
-
-        <!--Search section-->
-        <div class = "row text-center">
-            <h1>Find a bout and bet on it:</h1>
-        </div>
-        <form>
-            <div class="form-group">
-                <label for="fighterInput">Find a fighter:</label>
-                <input type="text" class="form-control" id="fighterInput" aria-describedby="fighterHelp"
-                    placeholder="Enter Fighter Name:">
-                <small id="fighterHelp" class="form-text text-muted">Enter a fighter's first or last name to search for their next fight.</small>
-            </div>
-            <div class="form-group">
-                <label for="locationInput">Search by location:</label>
-                <input type="text" class="form-control" id="locationInput" placeholder="Anywhere, USA">
-            </div>
-            <div class="form-group">
-                <label for="weightClassInput">Search by weight class:</label>
-                <input type="text" class="form-control" id="weightClassInput">
-            </div>
-            <button type="submit" class="btn btn-primary">Find that fool!</button>
-        </form>
-        <!--Search output section - dynamically created by the results drawn from the api-->
-        <div class="row border border-primary" id = "searchOutput">
-            <span>PUT SEARCH OUTPUT HERE. USER SELECTS A BOUT</span>
-            <!--User selects a bout-->
-        </div>
-
-        <!--Betting section - two cards side by side-->
-        <!--Cards are dynamically created based on the user selected results of the search-->
-        <div class="row border border-primary" id = "fighterCards">
-                <span>PUT FIGHTER CARDS HERE. POPULATE FIGHTER INFO FROM SELECTED BOUT</span>
-        </div>
-        <!--Footer that pops up with user info in it-->
-        <div class="row border border-primary" id = "userTokenOutput">
-                <span>PUT USER INFO HERE</span>
-                <!--User selects a bout-->
-            </div>
     </div>
+
 
 </body>
 
