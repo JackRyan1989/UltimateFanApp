@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -17,7 +15,7 @@
 </head>
 
 <body>
-    <!--Nav bar-->
+    <!--Navbar-->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">The Gambling Pugilist</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -40,9 +38,8 @@
         </div>
     </nav>
 
-    <!--This container will hold everything but ze navbar-->
+    <!--Jumbotron-->
     <div class="container">
-        <!--Title-->
         <div class="jumbotron text-center">
             <span id="numFights"></span>
             <h1>UFC TRIVIA</h1>
@@ -50,7 +47,35 @@
         </div>
     </div>
 
+    <!--Trivia Quiz-->
+    <div class="container">
+        
+        <h1>Test Your Knowledge</h1>
+        <button class="btn btn-primary" id="start">Start</button>
+    
+        <div id="questionSection"></div>
+        <h1 id="time"></h1>
+    </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="quiz.js"></script>
 </body>
 
