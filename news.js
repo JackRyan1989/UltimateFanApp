@@ -13,8 +13,15 @@ $(document).ready(function () {
             method: "GET"
          }).then(function (response) {
           var ufcData = response.articles;
+          console.log(ufcData);
           for (i = 0; i < ufcData.length; i++){
-            
+            //Create the div to hold the card:
+            var addTopLevelDiv = $("#newsHolder").append($("<div>").addClass("card m-2 border border-dark").attr("data-ufc", ufcData[i].description));
+            //Create the card title
+            var title = $("<a>").addClass("article-link text-primary").attr("href", ufcData[i].url);
+            title.text(ufcData[i].description);
+            var cardHeader = $("<div>").addClass("p-2").append(title);
+            addTopLevelDiv.append(cardHeader);
           };
          });
 
