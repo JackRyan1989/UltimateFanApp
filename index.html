@@ -16,6 +16,11 @@
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="index.js"></script>
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
     <title>UFC Fighter Search</title>
 </head>
 
@@ -31,13 +36,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Find a Fighter <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Find a Fighter <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Test Your Knowledge</a>
+                    <a class="nav-link" href="quiz.html">Test Your Knowledge</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">UFC News</a>
+                    <a class="nav-link" href="news.html">UFC News</a>
                 </li>
             </ul>
         </div>
@@ -70,7 +75,7 @@
                 <label for="weightClassInput">Search by weight class:</label>
                 <input type="text" class="form-control" id="weightClassInput">
             </div>
-            <button type="submit" class="btn btn-primary">Find that fool!</button>
+            <button type="submit" class="btn btn-primary" id="submitButton">Find that fool!</button>
         </form>
         <!--Search output section - dynamically created by the results drawn from the api-->
         <div class="row border border-primary" id = "searchOutput">
