@@ -37,17 +37,16 @@ $(document).ready(function () {
             if (txt[0].text.length > 10) {
                 title.text(txt[0].text.substring(0, 100) + " ... Read More");
             };
-            var saveButton = $("<button>").addClass("btn-sm bg-dark text-white").text("Save Article");
+            var saveButton = $("<button>").addClass("btn-sm bg-dark text-white").attr("data-url", ufcData[i].url).attr("data-title", ufcData[i].title).text("Save Article");
             var cardHeader = $("<div>").addClass("p-2").append(title);
             var cardFooter = $("<div>").addClass("p-2").append(saveButton);
             addTopLevelDiv.append(cardHeader).append(cardFooter);
         
         //Save article button
         saveButton.on("click", function () {
-            console.log("Clicked");
-            var title = "Article title";
-            var url = "Article URL";
-
+            var title = $(this).attr("data-title");
+            var url = $(this).attr("data-url");
+            //console.log($(this).attr("data-title"));
             database.ref().push({
                 title,
                 url,
