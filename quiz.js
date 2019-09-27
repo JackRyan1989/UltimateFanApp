@@ -1,11 +1,12 @@
 //-----------------------------------------Quiz Section Code Here----------------------------//
 var triviaQuestions = [
-    //Question 1
     {
         question: "What is UFC an abbreviation for?",
         choices: ["Unlimited Fried Chicken", "Ultimate Fighting Championship", "Ultra Fighting Contest", "Universal Fighter Championship"],
         correctAnswer: "Ultimate Fighting Championship"
     },
+<<<<<<< HEAD
+=======
     //Question 2
     {
         question: "Who was the first female UFC fighter signed?",
@@ -151,9 +152,10 @@ var triviaQuestions = [
         correctAnswer: "Bellator"
     },
 
+>>>>>>> 09fe7649047d74b4594bdcc957e0b47dcc6eb9bf
 ]
 
-var counter = 15;
+var counter = 30;
 var score = 0;
 var missed = 0;
 var currentQuestion = 0;
@@ -170,7 +172,7 @@ $(document).on('click', '#start', function () {
 
 //function needed to put the questions and options list on the screen
 function showQuestion() {
-    counter = 15;
+    counter = 30;
     timer = setInterval(countDown, 1000);
 
     var question = triviaQuestions[currentQuestion].question;
@@ -242,6 +244,8 @@ function showResults() {
     <button class='btn btn-primary' id='reset'>Reset Triva Game</button
     `;
     $('#questionSection').html(results);
+<<<<<<< HEAD
+=======
 
     if (score <= 5) {
         $("#ranking").append('<img src="images/knockedout.jpg" height="300px" width="300px">');
@@ -268,11 +272,12 @@ function showResults() {
         $("#ranking-description").append('<h2>You have what it takes to be the World Champion!</h2>')
         $("#ranking-description").append('<h6>You have mastered the art of combat, no one can stop you!</h6>')
     }
+>>>>>>> 09fe7649047d74b4594bdcc957e0b47dcc6eb9bf
 }
 
 //on-click function to add functionality to the reset button
 $(document).on('click', '#reset', function () {
-    counter = 15;
+    counter = 30;
     score = 0;
     missed = 0;
     currentQuestion = 0;
