@@ -1,3 +1,4 @@
+//-----------------------------------------Quiz Section Code Here----------------------------//
 var triviaQuestions = [
     //Question 1
     {
@@ -55,7 +56,7 @@ var triviaQuestions = [
     },
     //Question 10
     {
-        question: "Which city had the highest attendest at a single UFC event?",
+        question: "Which city had the highest attendance at a single UFC event?",
         choices: ["Melbourne", "Las Vegas", "Miami", "Dublin"],
         correctAnswer: "Melbourne"
     },
@@ -145,7 +146,7 @@ var triviaQuestions = [
     },
     //Question 25
     {
-        question: "Which of the following organisations have the UFC not bought over?",
+        question: "Which of the following organizations have the UFC not bought over?",
         choices: ["Pride", "Bellator", "WEC", "Strikeforce"],
         correctAnswer: "Bellator"
     },
@@ -242,20 +243,30 @@ function showResults() {
     `;
     $('#questionSection').html(results);
 
-    if (score <= 5){
-        alert("You suck!")
+    if (score <= 5) {
+        $("#ranking").append('<img src="images/knockedout.jpg" height="300px" width="300px">');
+        $("#ranking-description").append('<h2>Stick to your day job</h2>')
+        $("#ranking-description").append('<h6>Fighting is not for you. In fact, maybe try something easy like shuffle board</h6>')
     }
-    else if (score >= 6 && score <= 10){
-        alert("That was pretty bad")
+    else if (score >= 6 && score <= 10) {
+        $("#ranking").append('<img src="images/noseelbow.jpg" height="300px" width="300px">');
+        $("#ranking-description").append('<h2>You may have taken some karate classes when you were a kid</h2>')
+        $("#ranking-description").append('<h6>You may have learned how to throw a punch from playing Mike Tysons Knockout, but that did not help you here</h6>')
     }
-    else if (score >= 11 && score <= 15){
-        alert("You must be a casual fan")
+    else if (score >= 11 && score <= 15) {
+        $("#ranking").append('<img src="images/nate.jpg" height="300px" width="300px">');
+        $("#ranking-description").append('<h2>Your fighting ability is average, stick to street fights</h2>')
+        $("#ranking-description").append('<h6>It is obvious you learned to fight from Bruce Lee Movies</h6>')
     }
-    else if (score >= 16 && score <= 20){
-        alert("You have potential to be the champion, keep pushing!")
+    else if (score >= 16 && score <= 20) {
+        $("#ranking").append('<img src="images/donald.jpg" height="300px" width="300px">');
+        $("#ranking-description").append('<h2>You are talented, keep training!</h2>')
+        $("#ranking-description").append('<h6>You have been training but need more experience</h6>')
     }
-    else if (score >= 21 && score <= 25){
-        alert("You are the world Champion!")
+    else if (score >= 21 && score <= 25) {
+        $("#ranking").append('<img src="images/champion.jpg" height="300px" width="300px">');
+        $("#ranking-description").append('<h2>You have what it takes to be the World Champion!</h2>')
+        $("#ranking-description").append('<h6>You have mastered the art of combat, no one can stop you!</h6>')
     }
 }
 
@@ -266,5 +277,9 @@ $(document).on('click', '#reset', function () {
     missed = 0;
     currentQuestion = 0;
     timer; null;
+    $("#ranking").remove();
+    $("#ranking-description").remove();
     showQuestion();
 })
+
+//----------------------------Facts Section Code Here----------------------------//
