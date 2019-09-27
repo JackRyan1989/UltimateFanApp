@@ -8,29 +8,31 @@ $(document).ready(function () {
     //Stub Hub api key:
     var stubHubApiKey = "T1DZyGIApA99dALmjSw4I5SAmfdwQoPO";
     //Ticket Master api key:
-    var ticketMasterAPI  = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
+    var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
 
     $("#submitButton").on("click", function () {
         event.preventDefault();
         var city = $("#cityInput").val().trim();
         var state = $("#stateInput").val().trim();
         var keyWord = "ufc";
-        var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword="+keyWord+"&countryCode=US&city="+city+"&state="+state+"&apikey="+ticketMasterAPI;
+        var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&state=" + state + "&apikey=" + ticketMasterAPI;
         console.log(tmURL);
         $.ajax({
-            type:"GET",
+            type: "GET",
             url: tmURL,
-            async:true,
+            async: true,
             dataType: "json",
-            success: function(json) {
-                        console.log(json);
-                        if (!(json._embedded)) {
-                        console.log("Search somewhere else");
-                        };
-                     },
-            error: function(xhr, status, err) {
-                        // This time, we do not end up here!
-                     }
-          });
+            success: function (json) {
+                console.log(json);
+                if (!(json._embedded)) {
+                    $("#locationFailModal").modal("toggle");
+                    $("#locationSpan").text(city + ", " + state);
+                    console.log("Search somewhere else");
+                };
+            },
+            error: function (xhr, status, err) {
+                // This time, we do not end up here!
+            }
         });
+    });
 });
