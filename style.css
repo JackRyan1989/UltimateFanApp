@@ -37,7 +37,9 @@
 }
 
 .card{
-  height: 300px;
+  
   width: 300px;
   float: left;
+  padding: 2px;
+  margin: 5px;
 }
