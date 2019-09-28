@@ -2,9 +2,9 @@ $(document).ready(function () {
 
     //Apis:
     //Specific competitor info:
-    var specCompURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=ywt2ucxtf9drabwswbvx863g';
+    var specCompURL = 'https://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=ywt2ucxtf9drabwswbvx863g';
     //Specific competitor profile:
-    var specCompProfURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=ywt2ucxtf9drabwswbvx863g';
+    var specCompProfURL = 'https://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=ywt2ucxtf9drabwswbvx863g';
     //Ticket Master api key:
     var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
 
