@@ -35,3 +35,9 @@
 .row{
   font-family: 'Slackey', cursive;
 }
+
+.card{
+  height: 300px;
+  width: 300px;
+  float: left;
+}
