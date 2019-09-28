@@ -12,23 +12,37 @@ $(document).ready(function () {
 
     $("#submitButton").on("click", function () {
         event.preventDefault();
+
+        //Location search function:
         var city = $("#cityInput").val().trim();
         var state = $("#stateInput").val().trim();
         var keyWord = "ufc";
         var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&state=" + state + "&apikey=" + ticketMasterAPI;
-        console.log(tmURL);
         $.ajax({
             type: "GET",
             url: tmURL,
             async: true,
             dataType: "json",
             success: function (json) {
-                console.log(json);
                 if (!(json._embedded)) {
                     $("#locationFailModal").modal("toggle");
                     $("#locationSpan").text(city + ", " + state);
-                    console.log("Search somewhere else");
+                } else {
+                    $("#numBouts").append(json._embedded.events.length);
+                    $("#foundLocSpan").text(city + ", " + state);
                 };
+                    //Loop through event.urls to create fight links:
+                    var eventURLs = [];
+                    var eventNames = [];   
+                    for (i = 0; i < json._embedded.events.length; i++) {
+                        eventURLs.push(json._embedded.events[i].url);
+                        eventNames.push(json._embedded.events[i].name);
+                        console.log(eventURLs[i]);
+                        eventURLCol = $("<a>").attr("href", eventURLs[i]).attr("target", "_blank").text(eventNames[i]);
+                        eventNameCol = $("<div>").append(eventURLCol);
+                        $("#eventNameList").append(eventNameCol);
+                    };
+                    $("#boutFoundModal").modal("toggle");
             },
             error: function (xhr, status, err) {
                 // This time, we do not end up here!
