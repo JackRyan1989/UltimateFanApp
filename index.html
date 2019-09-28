@@ -23,13 +23,14 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="index.js"></script>
     <script type="text/javascript" src="giphy.js"></script>
-    <title>UFC Fighter Search</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <title>UFC Fight Club</title>
 </head>
 
 <body>
     <!--Nav bar-->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">The Gambling Pugilist</a>
+        <a class="navbar-brand" href="#">UFC Fight Club</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,31 +55,30 @@
     <div class="container">
         <!--Title-->
         <div class="jumbotron text-center">
-            <span id="numFights">5</span>
-            <span>UFC fights are happening tonight. BET ON ONE.</span>
+            <span id="numFights"></span>
+            <span>Search For UFC Events or Get Info On All of Your Favorite Fighters</span>
         </div>
 
         <!--Search section-->
         <div class="row text-center">
-            <h1>Find a bout and bet on it:</h1>
+            
         </div>
         <form>
             <div class="form-group">
-                <label for="fighterInput">Find a fighter:</label>
+                <label for="fighterInput">Search Fighter</label>
                 <input type="text" class="form-control" id="fighterInput" aria-describedby="fighterHelp"
-                    placeholder="Enter Fighter Name:">
-                <small id="fighterHelp" class="form-text text-muted">Enter a fighter's first or last name to search for
-                    their next fight.</small>
+                    placeholder="Conor McGregor">
+                <small id="fighterHelp" class="form-text text-muted">Enter your fighter's first and last name</small>
             </div>
             <div class="form-group">
-                <label for="locationInput">Search by location:</label>
-                <input type="text" class="form-control" id="cityInput" placeholder="City">
+                <label for="locationInput">Search Events by City Name</label>
+                <input type="text" class="form-control" id="cityInput" placeholder="New York">
             </div>
-            <button type="submit" class="btn btn-primary" id="submitButton">Find that fool!</button>
+            <button type="submit" class="btn btn-primary" id="submitButton">Search</button>
         </form>
         <!--Search output section - dynamically created by the results drawn from the api-->
-        <div class="row border border-primary" id="searchOutput">
-            <span>PUT SEARCH OUTPUT HERE. USER SELECTS A BOUT</span>
+        <div class="row" id="searchOutput">
+            <!-- <span>PUT SEARCH OUTPUT HERE. USER SELECTS A BOUT</span> -->
             <!--User selects a bout-->
         </div>
 
