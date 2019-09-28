@@ -18,31 +18,34 @@ $(document).ready(function () {
         var state = $("#stateInput").val().trim();
         var keyWord = "ufc";
         var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&state=" + state + "&apikey=" + ticketMasterAPI;
+        $("#eventNameList").empty();
+        $("#numBouts").empty();
         $.ajax({
             type: "GET",
             url: tmURL,
             async: true,
             dataType: "json",
             success: function (json) {
-                if (!(json._embedded)) {
-                    $("#locationFailModal").modal("toggle");
-                    $("#locationSpan").text(city + ", " + state);
-                } else {
-                    $("#numBouts").append(json._embedded.events.length);
-                    $("#foundLocSpan").text(city + ", " + state);
-                };
+                if (!(city === "") || !(state === "")) {
+                    if (!(json._embedded)) {
+                        $("#locationFailModal").modal("toggle");
+                        $("#locationSpan").text(city + ", " + state);
+                    } else {
+                        $("#numBouts").append(json._embedded.events.length);
+                        $("#foundLocSpan").text(city + ", " + state);
+                    };
                     //Loop through event.urls to create fight links:
                     var eventURLs = [];
-                    var eventNames = [];   
+                    var eventNames = [];
                     for (i = 0; i < json._embedded.events.length; i++) {
                         eventURLs.push(json._embedded.events[i].url);
                         eventNames.push(json._embedded.events[i].name);
-                        console.log(eventURLs[i]);
                         eventURLCol = $("<a>").attr("href", eventURLs[i]).attr("target", "_blank").text(eventNames[i]);
-                        eventNameCol = $("<div>").append(eventURLCol);
+                        eventNameCol = $("<div>").addClass("m-2 p-2 border border-primary rounded").append(eventURLCol);
                         $("#eventNameList").append(eventNameCol);
                     };
                     $("#boutFoundModal").modal("toggle");
+                };
             },
             error: function (xhr, status, err) {
                 // This time, we do not end up here!
