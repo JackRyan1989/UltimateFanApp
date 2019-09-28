@@ -54,16 +54,18 @@ $(document).ready(function () {
                 console.log(item)
                 var stillImageUrl = item.images.downsized_still.url;
                 console.log(stillImageUrl);
-                var fighterDiv = $("<div>")
-                fighterDiv.addClass("col-sm-4")
 //this animates the images
                 var fighterCard = $("<div>")
-                fighterCard.addClass("card")
-                var fighterImage = $("<img>").attr("src", item.images.original.url);
-                fighterImage.attr("data-still", item.images.original_still.url)
-                fighterImage.attr("data-animate", item.images.original.url)
-                fighterImage.attr("data-state", "still")
-                fighterImage.addClass("card-img-top");
+                fighterCard.addClass("card col-4")
+                var fighterImage = $("<img>").attr({
+                    src:item.images.original.url,
+                    class: "img-fluid card-img-top mx-auto d-block",
+                    id: "gif-img",
+                    "data-still": item.images.original_still.url,
+                    "data-animate": item.images.original.url,
+                    "data-state": "still"
+                });
+
                 fighterCard.append(fighterImage);
 //they animate when clicked
                 fighterCard.on("click", function () {
