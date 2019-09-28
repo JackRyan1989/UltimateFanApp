@@ -2,22 +2,33 @@ $(document).ready(function () {
 
     //Apis:
     //Specific competitor info:
-    var specCompURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=ywt2ucxtf9drabwswbvx863g';
+    var specCompURL = 'https://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=ywt2ucxtf9drabwswbvx863g';
     //Specific competitor profile:
-    var specCompProfURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=ywt2ucxtf9drabwswbvx863g';
-    //Stub Hub api key:
-    var stubHubApiKey = "T1DZyGIApA99dALmjSw4I5SAmfdwQoPO";
+    var specCompProfURL = 'https://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=ywt2ucxtf9drabwswbvx863g';
     //Ticket Master api key:
     var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
 
     $("#submitButton").on("click", function () {
         event.preventDefault();
 
+        //Fighter search functions
+        $.ajax({
+            type: "GET",
+            url: specCompProfURL,
+            async: true,
+            dataType: "json",
+            success: function (json) {
+                console.log(json);
+            },
+            error: function (xhr, status, err) {
+                // This time, we do not end up here!
+            }
+        });
+
         //Location search function:
         var city = $("#cityInput").val().trim();
-        var state = $("#stateInput").val().trim();
         var keyWord = "ufc";
-        var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&state=" + state + "&apikey=" + ticketMasterAPI;
+        var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&apikey=" + ticketMasterAPI;
         $("#eventNameList").empty();
         $("#numBouts").empty();
         $.ajax({
@@ -26,13 +37,13 @@ $(document).ready(function () {
             async: true,
             dataType: "json",
             success: function (json) {
-                if (!(city === "") || !(state === "")) {
+                if (!(city === "")) {
                     if (!(json._embedded)) {
                         $("#locationFailModal").modal("toggle");
-                        $("#locationSpan").text(city + ", " + state);
+                        $("#locationSpan").text(city);
                     } else {
                         $("#numBouts").append(json._embedded.events.length);
-                        $("#foundLocSpan").text(city + ", " + state);
+                        $("#foundLocSpan").text(city);
                     };
                     //Loop through event.urls to create fight links:
                     var eventURLs = [];
