@@ -1,40 +1,8 @@
-.navbar-brand{  
-  font-family: 'Slackey', cursive;  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgb(165, 28, 28);
-  padding: 15px 40px;
-  border-radius: 4px;
-  font-weight: normal;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in-out;
+body {
+  font-family: 'Titillium Web', sans-serif;
 }
 
-.navbar-brand:hover{
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgb(205, 212, 17);
-}
 
-.nav-link{
-  font-family: 'Slackey', cursive;    
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgb(165, 28, 28);
-  padding: 15px 40px;
-  margin: 5px;
-  border-radius: 4px;
-  font-weight: normal;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in-out;
-}
-
-.nav-link:hover{
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgb(205, 212, 17);
-}
-
-.row{
-  font-family: 'Slackey', cursive;
-}
 
 #gif-img{
   height: 300px;
