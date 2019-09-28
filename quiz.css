@@ -1,0 +1,25 @@
+/* .container {
+    height: 500px;
+    width: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black;
+} */
+
+.bd-example {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5px;
+
+}
+
+
+.card {
+    text-align: center;
+    display: inline-block
+}
+
+.card-img-top {
+    height: 250px;
+    width: 250px;
+}
