@@ -37,8 +37,10 @@ $(document).ready(function () {
        console.log("Clicked");
         $("#fighters").empty();
         var apiKey = "rNdXDLNYthIjN88XMIVsVMmBK57fR2jJ";
+        
         //fighterSelected = $(this).text();
-        var url = "https://api.giphy.com/v1/gifs/search?q="+topic+"&api_key="+apiKey;
+        var url = "https://api.giphy.com/v1/gifs/search?q="+topic+"&limit=10&api_key="+apiKey; 
+        
         console.log(url);
 //populates images to the page
         $.ajax({
