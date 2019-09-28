@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap CDN-->
+    <!-- <link rel="stylesheet" type="text/css" href="quiz.css"> -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="quiz.css">
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
@@ -38,37 +38,74 @@
             </ul>
         </div>
     </nav>
+    <!---End Navbar-->
 
     <!--Jumbotron-->
-    <div class="container">
-        <div class="row">
     <div class="bd-example">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="1" class="active"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="2" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/champion.jpg" class="d-block w-100" alt="champion">
+                    <img src="images/conor3.jpg" class="d-block w-100" alt="champchamp">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>History of the Ultimate Fighting Championship</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h5>History of the UFC</h5>
+                        <p>Starting in 1993 as a professional mixed martial arts (MMA) organization, UFC® has
+                            revolutionized the fight business and today stands as a premium global sports brand, media
+                            content company and the largest Pay-Per-View (PPV) event provider in the world.
+
+                            UFC follows a rich history and tradition of competitive MMA dating back to Pankration, a
+                            Greek Olympic
+                            Games event introduced in 648 BC. About 80 years ago, a Brazilian form of MMA known as Vale
+                            Tudo (anything goes) sparked local interest in the sport. UFC then introduced organized and
+                            sanctioned MMA to the United States. </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/nate.jpg" class="d-block w-100" alt="nate">
+                    <img src="images/old.jpg" class="d-block w-100" alt="old">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5>The Beginning</h5>
+                        <p>The goal was to find “the Ultimate Fighting Champion” by staging a single-night tournament
+                            featuring the best athletes skilled in the various disciplines of all martial arts,
+                            including karate, jiu-jitsu, boxing, kickboxing, grappling, wrestling, sumo and other combat
+                            sports. The winner of the tournament would be crowned the champion.
+
+                            In January 2001, under the new ownership of Zuffa, LLC and guided by the leadership of
+                            owners Frank Fertitta III, Lorenzo Fertitta, and Dana White, the UFC brand restructured MMA
+                            into a highly organized, sanctioned and controlled combat sport. Headquartered in Las Vegas
+                            with a network of employees around the world, UFC produces more than 40 live events annually
+                            that consistently sell out some of the most prestigious arenas around the globe.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/octogon.jpg" class="d-block w-100" alt="octogon">
+                    <img src="images/crowd.jpg" class="d-block w-100" alt="crowd">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h5>Broadcasting</h5>
+                        <p>UFC programming is broadcast in over 165 countries and territories, via more than 60 global
+                            broadcast partners, to more than 1.1 billion TV households worldwide in over 40 different
+                            languages. UFC has the highest concentration of millennials (ages 18-34) in its fan base
+                            with 40% compared to the top sports properties.
+
+                            In December 2013, UFC launched UFC FIGHT PASS®, a digital subscription service, which
+                            delivers exclusive live events, thousands of fights on-demand and original content to fans
+                            around the world, positioning the over-the-top digital network as the premier destination
+                            for fight fans.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/mayweather.jpg" class="d-block w-100" alt="mayweather">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Today</h5>
+                        <p> It is the largest MMA promotion company in the world and features the highest-level fighters
+                            on the roster.The UFC produces events worldwide that showcase twelve weight divisions
+                            and abide by the Unified Rules of Mixed Martial Arts. As of 2018, the UFC has held over
+                            400 events. Dana White serves as the president of the UFC. White has held that position
+                            since 2001; while under his stewardship, the UFC has grown into a globally popular
+                            multi-billion-dollar enterprise.</p>
                     </div>
                 </div>
             </div>
@@ -81,16 +118,76 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        </div>
+    </div>
+    <!--End Jumbotron-->
+    <!--Cards-->
+
+    <div class="container">
+        <h1>Interesting UFC Facts</h1>
+        <div class="row">
+
+            <div class="card" style="width: 18rem;">
+                <img src="images/ufcbelt.jpg" class="card-img-top" alt="belt">
+                <div class="card-body">
+                    <h5 class="card-title">The UFC Belt Really Is Made of Gold</h5>
+                    <p class="card-text">At a glance, it may look like nothing more than a strap of Taiwan's finest, but
+                        apparently it is real gold. Or gold plating, anyway.
+                        And for those eager to actualize their dreams of glory without having to fight anybody or go to
+                        the
+                        gym or anything like that, you can own your own gold-plated belt for about $1,000.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="images/octogon.jpg" class="card-img-top" alt="octogon">
+                <div class="card-body">
+                    <h5 class="card-title" text-align=center>The Octagon: Inspired by Chuck Norris</h5>
+                    <p class="card-text">One could make a case for adding the UFC's signature cage to the list. The 1980
+                        ninja film "The Octagon," starring Norris, has become a cult hit among martial arts film
+                        enthusiasts. I know, I know. What involving Norris HASN'T become a cult hit among martial arts
+                        enthusiasts?</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="images/ufc375.jpg" class="card-img-top" alt="ufc 37.5">
+                <div class="card-body">
+                    <h5 class="card-title">First MMA Fight to Be Aired on Cable TV</h5>
+                    <p class="card-text">When Robbie Lawler took on Steve Berger at UFC 37.5 on Fox Sports Net, it was
+                        the
+                        first MMA fight ever on cable.
+
+                        The event was headlined by Chuck Liddell decisioning Vitor Belfort.</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="images/teddy.jpg" class="card-img-top" alt="Teddy">
+                <div class="card-body">
+                    <h5 class="card-title">America's First MMA Fighter: Theodore Roosevelt</h5>
+                    <p class="card-text">One of history's more pugnacious presidents did more than fight the railway
+                        commissions.
+
+                        He wrestled, boxed and practiced judo most of his life. In fact, he was the first American to
+                        earn
+                        his brown belt.
+
+                        .</p>
+                </div>
+            </div>
+
+
         </div>
     </div>
+    <!--End Cards-->
 
     <!--Trivia Quiz-->
     <div class="container">
-        
+
         <h1>Test Your Knowledge</h1>
         <button class="btn btn-primary" id="start">Start</button>
-        
+
         <div id="questionSection"></div>
         <h1 id="time"></h1>
 
@@ -98,61 +195,8 @@
         <div id="ranking-description"></div>
     </div>
 
-    <div class="container">
-        <h1>Interesting UFC Facts</h1>
-        <div class="row">
+    <!--End Quiz-->
 
-        <div class="card" style="width: 18rem;">
-            <img src="images/ufcbelt.jpg" class="card-img-top" alt="belt">
-            <div class="card-body">
-                <h5 class="card-title">The UFC Belt Really Is Made of Gold</h5>
-                <p class="card-text">At a glance, it may look like nothing more than a strap of Taiwan's finest, but
-                    apparently it is real gold. Or gold plating, anyway.
-                    And for those eager to actualize their dreams of glory without having to fight anybody or go to the
-                    gym or anything like that, you can own your own gold-plated belt for about $1,000.
-                </p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="images/octogon.jpg" class="card-img-top" alt="octogon">
-            <div class="card-body">
-                <h5 class="card-title" text-align=center>The Octagon: Inspired by Chuck Norris</h5>
-                <p class="card-text">One could make a case for adding the UFC's signature cage to the list. The 1980
-                    ninja film "The Octagon," starring Norris, has become a cult hit among martial arts film
-                    enthusiasts. I know, I know. What involving Norris HASN'T become a cult hit among martial arts
-                    enthusiasts?</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="images/ufc375.jpg" class="card-img-top" alt="ufc 37.5">
-            <div class="card-body">
-                <h5 class="card-title">First MMA Fight to Be Aired on Cable TV</h5>
-                <p class="card-text">When Robbie Lawler took on Steve Berger at UFC 37.5 on Fox Sports Net, it was the
-                    first MMA fight ever on cable.
-
-                    The event was headlined by Chuck Liddell decisioning Vitor Belfort.</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="images/teddy.jpg" class="card-img-top" alt="Teddy">
-            <div class="card-body">
-                <h5 class="card-title">America's First MMA Fighter: Theodore Roosevelt</h5>
-                <p class="card-text">One of history's more pugnacious presidents did more than fight the railway
-                    commissions.
-
-                    He wrestled, boxed and practiced judo most of his life. In fact, he was the first American to earn
-                    his brown belt.
-
-                    .</p>
-            </div>
-        </div>
-
-
-        </div>
-    </div>
 
 
 
@@ -171,6 +215,7 @@
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="quiz.js"></script>
 </body>
 
