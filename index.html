@@ -74,15 +74,15 @@
                 <label for="locationInput">Search by location:</label>
                 <input type="text" class="form-control" id="cityInput" placeholder="City">
             </div>
-            <button type="submit" class="btn btn-primary" id="submitButton">Find that fool!
-
-            </button>
+            <button type="submit" class="btn btn-primary" id="submitButton">Find that fool!</button>
         </form>
         <!--Search output section - dynamically created by the results drawn from the api-->
         <div class="row border border-primary" id="searchOutput">
             <span>PUT SEARCH OUTPUT HERE. USER SELECTS A BOUT</span>
             <!--User selects a bout-->
         </div>
+
+ 
     </div>
 
     <div class="row">
@@ -103,22 +103,23 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
+
                 </div>
             </div>
         </div>
 
-        <!-- Modal for bouts found: -->
-        <div class="modal fade" id="boutFoundModal" tabindex="-1" role="dialog" aria-labelledby="boutModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="boutModalLabel"> <span id="numBouts"></span> bouts found in <span
-                                id="foundLocSpan"></span>. <br> Get tickets below. </h5>
-                    </div>
-                    <div class="modal-body" id="boutList">
-                        <div class="row" id="eventNameList">
-                        </div>
+
+    <!-- Modal for bouts found: -->
+    <div class="modal fade" id="boutFoundModal" tabindex="-1" role="dialog" aria-labelledby="boutModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="boutModalLabel"> <span id="numBouts"></span> bouts found in <span
+                            id="foundLocSpan"></span>. <br> Get tickets below. </h5>
+                </div>
+                <div class="modal-body" id="boutList">
+                    <div class="row" id="eventNameList">
                     </div>
                 </div>
             </div>
