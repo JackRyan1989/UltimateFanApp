@@ -1,29 +1,54 @@
 $(document).ready(function () {
 
-    //Apis:
+    //APIs:
+    //CORS Anywhere:
+    var corsAnywhere = "https://upenn-cors-server.herokuapp.com/";
     //Specific competitor info:
-    var specCompURL = 'https://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=ywt2ucxtf9drabwswbvx863g';
+    var specCompURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=';
     //Specific competitor profile:
-    var specCompProfURL = 'https://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=ywt2ucxtf9drabwswbvx863g';
+    var specCompProfURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=';
+    //UFC Seasons
+    var ufcSeasons = "http://api.sportradar.us/ufc/trial/v2/en/seasons.json?api_key=";
+    //UFC Season info:
+    //Need var for specific season to search in.
+    //var seasonInfo = "http://api.sportradar.us/ufc/trial/v2/en/seasons/" + seasons + "/info.json?api_key="
+    //Sport Radar API
+    var sportRadarAPI = "ywt2ucxtf9drabwswbvx863g";
     //Ticket Master api key:
     var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
 
     $("#submitButton").on("click", function () {
         event.preventDefault();
 
-        //Fighter search functions
+        //To find a fighter:
+        //Get list of seasons:
+        var seasons = [];
+        var fighterNames = [];
         $.ajax({
             type: "GET",
-            url: specCompProfURL,
+            url: (corsAnywhere + ufcSeasons + sportRadarAPI),
             async: true,
             dataType: "json",
-            success: function (json) {
-                console.log(json);
-            },
-            error: function (xhr, status, err) {
-                // This time, we do not end up here!
-            }
+            //Introduce .then function
+            //Look up promise.all
+        }).then(function (json) {
+            for (i = 0; i < 1; i++) {
+                seasons.push(json.seasons[i].id);
+            };
+            var seasonInfo = "http://api.sportradar.us/ufc/trial/v2/en/seasons/" + seasons + "/info.json?api_key=";
+            $.ajax({
+                type: "GET",
+                url: (corsAnywhere + seasonInfo + sportRadarAPI),
+                dataType: "json"
+            }).then(function (json_seasonInfo) {
+                console.log(json_seasonInfo);
+                for (i = 0; i < json_seasonInfo.competitors.length; i++) {
+                    fighterNames.push(json_seasonInfo.competitors[i].name);
+                    console.log(fighterNames);
+                }
+            });
         });
+
 
         //Location search function:
         var city = $("#cityInput").val().trim();
