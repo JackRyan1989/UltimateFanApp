@@ -9,46 +9,51 @@ $(document).ready(function () {
     var specCompProfURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=';
     //UFC Seasons
     var ufcSeasons = "http://api.sportradar.us/ufc/trial/v2/en/seasons.json?api_key=";
-    //UFC Season info:
-    //Need var for specific season to search in.
-    //var seasonInfo = "http://api.sportradar.us/ufc/trial/v2/en/seasons/" + seasons + "/info.json?api_key="
     //Sport Radar API
     var sportRadarAPI = "ywt2ucxtf9drabwswbvx863g";
     //Ticket Master api key:
     var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
 
-    $("#submitButton").on("click", function () {
-        event.preventDefault();
-
+    findFighter = function () {
         //To find a fighter:
         //Get list of seasons:
         var seasons = [];
+        var seasonInfo = [];
         var fighterNames = [];
+        var fighterIds = [];
         $.ajax({
             type: "GET",
             url: (corsAnywhere + ufcSeasons + sportRadarAPI),
             async: true,
             dataType: "json",
-            //Introduce .then function
-            //Look up promise.all
         }).then(function (json) {
-            for (i = 0; i < 1; i++) {
+            for (i = 0; i < 10; i++) {
                 seasons.push(json.seasons[i].id);
+                seasonInfo.push("http://api.sportradar.us/ufc/trial/v2/en/seasons/" + seasons[i] + "/info.json?api_key=" + sportRadarAPI);
             };
-            var seasonInfo = "http://api.sportradar.us/ufc/trial/v2/en/seasons/" + seasons + "/info.json?api_key=";
-            $.ajax({
-                type: "GET",
-                url: (corsAnywhere + seasonInfo + sportRadarAPI),
-                dataType: "json"
-            }).then(function (json_seasonInfo) {
-                console.log(json_seasonInfo);
-                for (i = 0; i < json_seasonInfo.competitors.length; i++) {
-                    fighterNames.push(json_seasonInfo.competitors[i].name);
-                    console.log(fighterNames);
-                }
-            });
+            //Then log the names of the fighters to the fighterNames array:
+            for (i = 0; i < seasonInfo.length; i++) {
+                $.ajax({
+                    type: "GET",
+                    url: (corsAnywhere + seasonInfo[i]),
+                    dataType: "json"
+                }).then(function (json_seasonInfo) {
+                    console.log(json_seasonInfo);
+                    for (i = 0; i < json_seasonInfo.competitors.length; i++) {
+                        fighterNames.push(json_seasonInfo.competitors[i].name);
+                        //Use fighterIds to search through specCompProfURL
+                        fighterIds.push(json_seasonInfo.competitors[i].id);
+                        console.log(fighterIds);
+                    };
+                });
+            };
         });
+    };
 
+    $("#submitButton").on("click", function () {
+        event.preventDefault();
+
+        findFighter();
 
         //Location search function:
         var city = $("#cityInput").val().trim();
@@ -87,5 +92,10 @@ $(document).ready(function () {
                 // This time, we do not end up here!
             }
         });
+
+        //Search for a fighter if their name is included in the 
+
     });
+
 });
+
