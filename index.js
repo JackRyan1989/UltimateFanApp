@@ -13,6 +13,18 @@ $(document).ready(function () {
     var sportRadarAPI = "ywt2ucxtf9drabwswbvx863g";
     //Ticket Master api key:
     var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
+    //Firebase Fighter Database:
+    var firebaseConfig = {
+        apiKey: "AIzaSyCoXYH_bB-FxoPOdOCHV-ALsW2l4DqMyA0",
+        authDomain: "ufcfighterdb-dd367.firebaseapp.com",
+        databaseURL: "https://ufcfighterdb-dd367.firebaseio.com",
+        projectId: "ufcfighterdb-dd367",
+        storageBucket: "ufcfighterdb-dd367.appspot.com",
+        messagingSenderId: "343190509800",
+        appId: "1:343190509800:web:0f5767ebdad5a09677d15d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
 
     findFighter = function () {
         //To find a fighter:
@@ -38,22 +50,29 @@ $(document).ready(function () {
                     url: (corsAnywhere + seasonInfo[i]),
                     dataType: "json"
                 }).then(function (json_seasonInfo) {
-                    console.log(json_seasonInfo);
+                    //console.log(json_seasonInfo);
                     for (i = 0; i < json_seasonInfo.competitors.length; i++) {
-                        fighterNames.push(json_seasonInfo.competitors[i].name);
+                        fighterNames.push((json_seasonInfo.competitors[i].name).toLowerCase());
                         //Use fighterIds to search through specCompProfURL
                         fighterIds.push(json_seasonInfo.competitors[i].id);
-                        console.log(fighterIds);
+                        //console.log(fighterNames);
                     };
                 });
+            };
+            if (fighterNames.includes(userFighter)) {
+                var fighterIndex = fighterNames.indexOf(userFighter);
+                var fighterIDIndex = fighterIndex;
+                console.log(fighterIDIndex);
             };
         });
     };
 
     $("#submitButton").on("click", function () {
         event.preventDefault();
-
-        findFighter();
+        
+        var userFighter = $("#fighterInput").val().trim().toLowerCase();
+        
+        findFighter(userFighter);
 
         //Location search function:
         var city = $("#cityInput").val().trim();
