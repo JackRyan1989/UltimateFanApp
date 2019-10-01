@@ -15,7 +15,7 @@ $(document).ready(function () {
         var userFighter = $("#fighterInput").val().trim().toLowerCase();
         var fighterSplit  = userFighter.split(" ");
         var userFighterURL = (fighterSplit[0] + "-" + fighterSplit[1]);
-        $.get((corsAnywhere + ufcURL + userFighterURL), function(data){
+        var request = $.get((corsAnywhere + ufcURL + userFighterURL), function(data){
             var html = $(data);
             var fightHistory = html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[5].childNodes[1];
             var fighterInfo = fightHistory.children[5].children[1].children[0];
@@ -29,8 +29,13 @@ $(document).ready(function () {
             var record = $(fightHistory.children[4].children[2].children[0].children[0].children[1]).text();
             var mostRecentFight = $(fightHistory.children[11].children[1].children[0].children[0].children[1].children[2].children[0]).text();
         });
-        
-    
+        //If we can't find a fighter let the user know.
+        if (!(request.statusText)) {
+            $("#fighterFailModal").modal("toggle");
+        };
+
+        //Write code that puts in the fighter cards:
+
         //Location search function:
         var city = $("#cityInput").val().trim();
         var keyWord = "ufc";
