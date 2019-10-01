@@ -12,6 +12,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         //Fighter search function:
+        $("#searchOutput").empty();
         var userFighter = $("#fighterInput").val().trim().toLowerCase();
         var fighterSplit = userFighter.split(" ");
         var userFighterURL = (fighterSplit[0] + "-" + fighterSplit[1]);
@@ -34,27 +35,40 @@ $(document).ready(function () {
                 mostRecentFight: $(fightHistory.children[11].children[1].children[0].children[0].children[1].children[2].children[0]).text(),
             };
             //Make the card:
-                var fCard = $("<div>");
-                fCard.addClass("card mx-auto p-2");
-                var fBody = $("<div>");
-                var cardTitle = $("<h5>");
-                var cardText = $("<p>");
-                cardText.addClass("card-text");
-                nickNameText = ("Nickname: " + nickName);
-                fromText = ("Hailing From: " + from);
-                ageText = ("Age: " + age);
-                heightText = ("Height: " + height);
-                weightText = ("Weight: " + weight);
-                armReachText = ("Arm Reach: " + armReach);
-                legReachText = ("Leg Reach: " + legReach);
-                recordText = ("Record: " + record);
-                mostRecentFightText  = ("Most Recent or Upcoming fight" + mostRecentFight);
-                cardTitle.text(dispData.fName + " " + dispData.lName);
-                fBody.append(cardTitle);
-                fCard.append(fBody);
-                $("#searchOutput").append(fCard);
+            var fCard = $("<div>");
+            fCard.addClass("card mx-auto p-2");
+            var fBody = $("<div>");
+            var cardTitle = $("<h5>");
+            var cardText = $("<div>");
+            cardText.addClass("card-text");
+            var nickNameText = $("<p>").text("Nickname: " + dispData.nickName);
+            var fromText = $("<p>").text("Hailing From: " + dispData.from);
+            var ageText = $("<p>").text("Age: " + dispData.age);
+            var heightText = $("<p>").text("Height: " + dispData.height);
+            var weightText = $("<p>").text("Weight: " + dispData.weight);
+            var armReachText = $("<p>").text("Arm Reach: " + dispData.armReach);
+            var legReachText = $("<p>").text("Leg Reach: " + dispData.legReach);
+            var recordText = $("<p>").text("Record: " + dispData.record);
+            var mostRecentFightText = ("Most Recent or Upcoming fight" + dispData.mostRecentFight);
+            cardText.append(
+                nickNameText,
+                fromText,
+                ageText,
+                heightText,
+                weightText,
+                armReachText,
+                legReachText,
+                recordText,
+                mostRecentFightText
+            );
+            cardTitle.text(dispData.fName + " " + dispData.lName);
+            fBody.append(cardTitle,
+                cardText
+            );
+            fCard.append(fBody);
+            $("#searchOutput").append(fCard);
         });
-        
+
 
         //Location search function:
         var city = $("#cityInput").val().trim();
