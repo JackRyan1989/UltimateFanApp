@@ -57,7 +57,7 @@
         <!--Title-->
         <div class="jumbotron text-center">
             <span id="numFights"></span>
-            <span>Search For UFC Events or Get Info On All of Your Favorite Fighters</span>
+            <span>.</span>
         </div>
 
         <!--Search section-->
@@ -66,13 +66,13 @@
         </div>
         <form>
             <div class="form-group">
-                <label for="fighterInput">Search Fighter</label>
+                <label for="fighterInput" id="searchFighter">Search Fighter</label>
                 <input type="text" class="form-control" id="fighterInput" aria-describedby="fighterHelp"
                     placeholder="Conor McGregor">
                 <small id="fighterHelp" class="form-text text-muted">Enter your fighter's first and last name</small>
             </div>
             <div class="form-group">
-                <label for="locationInput">Search Events by City Name</label>
+                <label for="locationInput" id="searchEvent">Search Events by City Name</label>
                 <input type="text" class="form-control" id="cityInput" placeholder="New York">
             </div>
             <button type="submit" class="btn btn-primary" id="submitButton">Search</button>

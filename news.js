@@ -32,12 +32,12 @@ $(document).ready(function () {
             //Create the div to hold the card:
             var addTopLevelDiv = $("#newsHolder").append($("<div>").addClass("card m-2 border border-dark").attr("data-ufc", ufcData[i].title));
             //Create the card title
-            var title = $("<a>").addClass("article-link text-primary").attr("id", i).attr("href", ufcData[i].url).attr("target", "_blank");
+            var title = $("<a>").addClass("article-link text").attr("id", i).attr("href", ufcData[i].url).attr("target", "_blank");
             txt = title.text(ufcData[i].description);
             if (txt[0].text.length > 10) {
                 title.text(txt[0].text.substring(0, 100) + " ... Read More");
             };
-            var saveButton = $("<button>").addClass("btn-sm bg-dark text-white").attr("data-url", ufcData[i].url).attr("data-title", ufcData[i].title).text("Save Article");
+            var saveButton = $("<button>").addClass("btn-sm bg-dark text").attr("data-url", ufcData[i].url).attr("data-title", ufcData[i].title).text("Save Article");
             var cardHeader = $("<div>").addClass("p-2").append(title);
             var cardFooter = $("<div>").addClass("p-2").append(saveButton);
             addTopLevelDiv.append(cardHeader).append(cardFooter);

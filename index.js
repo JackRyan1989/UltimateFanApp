@@ -38,6 +38,17 @@ $(document).ready(function () {
                 fCard.addClass("card mx-auto p-2");
                 var fBody = $("<div>");
                 var cardTitle = $("<h5>");
+                var cardText = $("<p>");
+                cardText.addClass("card-text");
+                nickNameText = ("Nickname: " + nickName);
+                fromText = ("Hailing From: " + from);
+                ageText = ("Age: " + age);
+                heightText = ("Height: " + height);
+                weightText = ("Weight: " + weight);
+                armReachText = ("Arm Reach: " + armReach);
+                legReachText = ("Leg Reach: " + legReach);
+                recordText = ("Record: " + record);
+                mostRecentFightText  = ("Most Recent or Upcoming fight" + mostRecentFight);
                 cardTitle.text(dispData.fName + " " + dispData.lName);
                 fBody.append(cardTitle);
                 fCard.append(fBody);
