@@ -13,28 +13,37 @@ $(document).ready(function () {
 
         //Fighter search function:
         var userFighter = $("#fighterInput").val().trim().toLowerCase();
-        var fighterSplit  = userFighter.split(" ");
+        var fighterSplit = userFighter.split(" ");
         var userFighterURL = (fighterSplit[0] + "-" + fighterSplit[1]);
-        var request = $.get((corsAnywhere + ufcURL + userFighterURL), function(data){
+        $.get((corsAnywhere + ufcURL + userFighterURL), function (data) {
             var html = $(data);
+            console.log(html);
             var fightHistory = html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[5].childNodes[1];
             var fighterInfo = fightHistory.children[5].children[1].children[0];
-            var nickName = $(fighterInfo.children[0].children[1]).text();
-            var from = $(fighterInfo.children[2].children[1]).text();
-            var age = $(fighterInfo.children[3].children[1]).text();
-            var height = $(fighterInfo.children[4].children[1]).text();
-            var weight = $(fighterInfo.children[5].children[1]).text();
-            var armReach = $(fighterInfo.children[6].children[1]).text();
-            var legReach = $(fighterInfo.children[7].children[1]).text();
-            var record = $(fightHistory.children[4].children[2].children[0].children[0].children[1]).text();
-            var mostRecentFight = $(fightHistory.children[11].children[1].children[0].children[0].children[1].children[2].children[0]).text();
+            var dispData = {
+                fName: $(html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[7].childNodes[1].childNodes[0]).text(),
+                lName: $(html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[7].childNodes[4].childNodes[0]).text(),
+                nickName: $(fighterInfo.children[0].children[1]).text(),
+                from: $(fighterInfo.children[2].children[1]).text(),
+                age: $(fighterInfo.children[3].children[1]).text(),
+                height: $(fighterInfo.children[4].children[1]).text(),
+                weight: $(fighterInfo.children[5].children[1]).text(),
+                armReach: $(fighterInfo.children[6].children[1]).text(),
+                legReach: $(fighterInfo.children[7].children[1]).text(),
+                record: $(fightHistory.children[4].children[2].children[0].children[0].children[1]).text(),
+                mostRecentFight: $(fightHistory.children[11].children[1].children[0].children[0].children[1].children[2].children[0]).text(),
+            };
+            //Make the card:
+                var fCard = $("<div>");
+                fCard.addClass("card mx-auto p-2");
+                var fBody = $("<div>");
+                var cardTitle = $("<h5>");
+                cardTitle.text(dispData.fName + " " + dispData.lName);
+                fBody.append(cardTitle);
+                fCard.append(fBody);
+                $("#searchOutput").append(fCard);
         });
-        //If we can't find a fighter let the user know.
-        if (!(request.statusText)) {
-            $("#fighterFailModal").modal("toggle");
-        };
-
-        //Write code that puts in the fighter cards:
+        
 
         //Location search function:
         var city = $("#cityInput").val().trim();
