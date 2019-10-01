@@ -3,77 +3,34 @@ $(document).ready(function () {
     //APIs:
     //CORS Anywhere:
     var corsAnywhere = "https://upenn-cors-server.herokuapp.com/";
-    //Specific competitor info:
-    var specCompURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/summaries.json?api_key=';
-    //Specific competitor profile:
-    var specCompProfURL = 'http://api.sportradar.us/ufc/trial/v2/en/competitors/sr:competitor:237660/profile.json?api_key=';
-    //UFC Seasons
-    var ufcSeasons = "http://api.sportradar.us/ufc/trial/v2/en/seasons.json?api_key=";
-    //Sport Radar API
-    var sportRadarAPI = "ywt2ucxtf9drabwswbvx863g";
     //Ticket Master api key:
     var ticketMasterAPI = "RDPrWYOojToRbPLsg0Ah8DnWO7cMXk10";
-    //Firebase Fighter Database:
-    var firebaseConfig = {
-        apiKey: "AIzaSyCoXYH_bB-FxoPOdOCHV-ALsW2l4DqMyA0",
-        authDomain: "ufcfighterdb-dd367.firebaseapp.com",
-        databaseURL: "https://ufcfighterdb-dd367.firebaseio.com",
-        projectId: "ufcfighterdb-dd367",
-        storageBucket: "ufcfighterdb-dd367.appspot.com",
-        messagingSenderId: "343190509800",
-        appId: "1:343190509800:web:0f5767ebdad5a09677d15d"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-
-    findFighter = function () {
-        //To find a fighter:
-        //Get list of seasons:
-        var seasons = [];
-        var seasonInfo = [];
-        var fighterNames = [];
-        var fighterIds = [];
-        $.ajax({
-            type: "GET",
-            url: (corsAnywhere + ufcSeasons + sportRadarAPI),
-            async: true,
-            dataType: "json",
-        }).then(function (json) {
-            for (i = 0; i < 10; i++) {
-                seasons.push(json.seasons[i].id);
-                seasonInfo.push("http://api.sportradar.us/ufc/trial/v2/en/seasons/" + seasons[i] + "/info.json?api_key=" + sportRadarAPI);
-            };
-            //Then log the names of the fighters to the fighterNames array:
-            for (i = 0; i < seasonInfo.length; i++) {
-                $.ajax({
-                    type: "GET",
-                    url: (corsAnywhere + seasonInfo[i]),
-                    dataType: "json"
-                }).then(function (json_seasonInfo) {
-                    //console.log(json_seasonInfo);
-                    for (i = 0; i < json_seasonInfo.competitors.length; i++) {
-                        fighterNames.push((json_seasonInfo.competitors[i].name).toLowerCase());
-                        //Use fighterIds to search through specCompProfURL
-                        fighterIds.push(json_seasonInfo.competitors[i].id);
-                        //console.log(fighterNames);
-                    };
-                });
-            };
-            if (fighterNames.includes(userFighter)) {
-                var fighterIndex = fighterNames.indexOf(userFighter);
-                var fighterIDIndex = fighterIndex;
-                console.log(fighterIDIndex);
-            };
-        });
-    };
+    //UFC Fighter info url:
+    var ufcURL = "http://media.ufc.com/fighter/";
 
     $("#submitButton").on("click", function () {
         event.preventDefault();
-        
-        var userFighter = $("#fighterInput").val().trim().toLowerCase();
-        
-        findFighter(userFighter);
 
+        //Fighter search function:
+        var userFighter = $("#fighterInput").val().trim().toLowerCase();
+        var fighterSplit  = userFighter.split(" ");
+        var userFighterURL = (fighterSplit[0] + "-" + fighterSplit[1]);
+        $.get((corsAnywhere + ufcURL + userFighterURL), function(data){
+            var html = $(data);
+            var fightHistory = html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[5].childNodes[1];
+            var fighterInfo = fightHistory.children[5].children[1].children[0];
+            var nickName = $(fighterInfo.children[0].children[1]).text();
+            var from = $(fighterInfo.children[2].children[1]).text();
+            var age = $(fighterInfo.children[3].children[1]).text();
+            var height = $(fighterInfo.children[4].children[1]).text();
+            var weight = $(fighterInfo.children[5].children[1]).text();
+            var armReach = $(fighterInfo.children[6].children[1]).text();
+            var legReach = $(fighterInfo.children[7].children[1]).text();
+            var record = $(fightHistory.children[4].children[2].children[0].children[0].children[1]).text();
+            var mostRecentFight = $(fightHistory.children[11].children[1].children[0].children[0].children[1].children[2].children[0]).text();
+        });
+        
+    
         //Location search function:
         var city = $("#cityInput").val().trim();
         var keyWord = "ufc";
@@ -111,10 +68,6 @@ $(document).ready(function () {
                 // This time, we do not end up here!
             }
         });
-
-        //Search for a fighter if their name is included in the 
-
     });
-
 });
 
