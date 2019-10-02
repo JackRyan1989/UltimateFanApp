@@ -41,18 +41,17 @@ $(document).ready(function () {
             var cardHeader = $("<div>").addClass("p-2").append(title);
             var cardFooter = $("<div>").addClass("p-2").append(saveButton);
             addTopLevelDiv.append(cardHeader).append(cardFooter);
-        
-        //Save article button
-        saveButton.on("click", function () {
-            var title = $(this).attr("data-title");
-            var url = $(this).attr("data-url");
-            //console.log($(this).attr("data-title"));
-            database.ref().push({
-                title,
-                url,
+
+            //Save article button
+            saveButton.on("click", function () {
+                var title = $(this).attr("data-title");
+                var url = $(this).attr("data-url");
+                database.ref().push({
+                    title,
+                    url,
+                });
             });
-        });
-    };
+        };
         database.ref().on("child_added", function (childSnapshot) {
             //Add articles to article holder
             $("#savedArticles").append("<div class='card m-2 border-dark'>").append("<div class= card-header <span class='Article Title'>" +
