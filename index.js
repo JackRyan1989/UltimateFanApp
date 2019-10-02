@@ -40,6 +40,8 @@ $(document).ready(function () {
             fCard.addClass("card mx-auto p-2");
             var fBody = $("<div>");
             var cardTitle = $("<h5>");
+            var cardBar = $("<hr>");
+            cardBar.addClass("style-three");
             var cardIMG = $("<img>");
             cardIMG.attr("src", "https://" + headShot);
             cardIMG.addClass("card-img-top");
@@ -66,7 +68,7 @@ $(document).ready(function () {
                 mostRecentFightText
             );
             cardTitle.text(dispData.fName + " " + dispData.lName);
-            fBody.append(cardTitle,
+            fBody.append(cardTitle, cardBar,
                 cardText
             );
             fCard.append(cardIMG,

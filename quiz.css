@@ -29,30 +29,33 @@ body {
     margin-top: 5px;
     margin-left: 3%;
     margin-right: 3%;
-    margin-bottom: 10px;
-    border-style: solid;
-    border-color: #adad85;
+    margin-bottom: 100px;
+    border-style: inset;
+    border-color: gold;
     border-width: 5px;
+  }
+
+  .carousel-inner > img {
+    width:1920px;
+    height:1080px;
   }
 
   .card {
     background-color: black;
+    margin-top: 200px;
     margin-left: 30px;
     margin-right: 30px;
     text-align: center;
-    border-style: solid;
-    border-color: #adad85;
-    border-width: 5px;
   }
   
   #quiz {
     text-align: center;
-    border-style: solid;
-    border-color: #adad85;
+    border-style: inset;
+    border-color: gold;
     border-width: 5px;
     font-family: 'Titillium Web', sans-serif;
     color: #adad85;
-    margin-top: 10px;
+    margin-top: 100px;
     margin-bottom: 10px;
   }
 
@@ -70,4 +73,42 @@ body {
     font-size: 1.5em;
     padding: 0 0.25em;
     background: white;
+    }
+
+    #start, #reset {
+      font-family: 'Titillium Web', sans-serif;
+    -moz-box-shadow: 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #ffee66;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top:2px;
+    }
+
+    .choice {
+      border-style: solid;
+    border-color: rgb(207, 40, 28);
+    border-width: 1px;
+    margin-left: 35%;
+    margin-right: 35%;
     }
