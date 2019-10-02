@@ -18,7 +18,8 @@ $(document).ready(function () {
         var userFighterURL = (fighterSplit[0] + "-" + fighterSplit[1]);
         $.get((corsAnywhere + ufcURL + userFighterURL), function (data) {
             var html = $(data);
-            console.log(html);
+            var headshotSRC = html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[5].childNodes[1].src;
+            var headShot = headshotSRC.slice(7);
             var fightHistory = html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[5].childNodes[1];
             var fighterInfo = fightHistory.children[5].children[1].children[0];
             var dispData = {
@@ -39,6 +40,9 @@ $(document).ready(function () {
             fCard.addClass("card mx-auto p-2");
             var fBody = $("<div>");
             var cardTitle = $("<h5>");
+            var cardIMG = $("<img>");
+            cardIMG.attr("src", "https://" + headShot);
+            cardIMG.addClass("card-img-top");
             var cardText = $("<div>");
             cardText.addClass("card-text");
             var nickNameText = $("<p>").text("Nickname: " + dispData.nickName);
@@ -65,10 +69,10 @@ $(document).ready(function () {
             fBody.append(cardTitle,
                 cardText
             );
-            fCard.append(fBody);
+            fCard.append(cardIMG,
+                fBody);
             $("#searchOutput").append(fCard);
         });
-
 
         //Location search function:
         var city = $("#cityInput").val().trim();
