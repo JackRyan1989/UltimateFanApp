@@ -8,7 +8,7 @@ var triviaQuestions = [
     },
     //Question 2
     {
-        question: "Who was the first female UFC fighter signed?",
+        question: "Who was the first female UFC fighter ever signed?",
         choices: ["Ronda Rousey", "Holly Holm", "Rose Numajunes", "Paige VanZant"],
         correctAnswer: "Ronda Rousey"
     },
@@ -74,7 +74,7 @@ var triviaQuestions = [
     },
     //Question 13
     {
-        question: "Who is the current women's Bantamweight Champion?",
+        question: "Who is the current Women's Bantamweight Champion?",
         choices: ["Holly Holm", "Amanda Nunes", "Cyborg", "Zhang Weili"],
         correctAnswer: "Amanda Nunes"
     },
@@ -98,7 +98,7 @@ var triviaQuestions = [
     },
     //Question 17
     {
-        question: "Where is the current UFC Headquarters",
+        question: "Where is the current UFC Headquarters?",
         choices: ["Miami", "Las Vegas", "Los Angeles", "New York City"],
         correctAnswer: "Las Vegas"
     },
@@ -110,7 +110,7 @@ var triviaQuestions = [
     },
     //Question 19
     {
-        question: "Which fighter has had the most succesful title defenses",
+        question: "Which fighter has had the most succesful title defenses?",
         choices: ["Anderson Silva", "Israel Adesanya", "Carlos Condit", "Derrick Lewis"],
         correctAnswer: "Anderson Silva"
     },
@@ -243,28 +243,28 @@ function showResults() {
     `;
     $('#questionSection').html(results);
 
-    if (score <= 5){
-        $("#ranking").append('<img src="images/knockedout.jpg" height="300px" width="300px">');
+    if (score <= 5) {
+        $("#ranking").append('<img src="images/knockedout.jpg" height="500px" width="500px">');
         $("#ranking-description").append('<h2>Stick to your day job</h2>')
-        $("#ranking-description").append('<h6>Fighting is not for you. In fact, maybe try something easy like shuffle board</h6>')
+        $("#ranking-description").append('<h6>Fighting is not for you. In fact, maybe try picking up something easier, like golf</h6>')
     }
-    else if (score >= 6 && score <= 10){
-        $("#ranking").append('<img src="images/noseelbow.jpg" height="300px" width="300px">');
-        $("#ranking-description").append('<h2>You may have taken some karate classes when you were a kid</h2>')
-        $("#ranking-description").append('<h6>You may have learned how to throw a punch from playing Mike Tysons Knockout, but that did not help you here</h6>')
+    else if (score >= 6 && score <= 10) {
+        $("#ranking").append('<img src="images/noseelbow.jpg" height="500px" width="500px">');
+        $("#ranking-description").append('<h2>Some kids karate class experience</h2>')
+        $("#ranking-description").append('<h6>You may have learned how to throw a punch from playing Mike Tysons Punch-Out on Nintendo, but that doesnt translate to real life to well </h6>')
     }
-    else if (score >= 11 && score <= 15){
-        $("#ranking").append('<img src="images/nate.jpg" height="300px" width="300px">');
+    else if (score >= 11 && score <= 15) {
+        $("#ranking").append('<img src="images/nate.jpg" height="500px" width="500px">');
         $("#ranking-description").append('<h2>Your fighting ability is average, stick to street fights</h2>')
         $("#ranking-description").append('<h6>It is obvious you learned to fight from Bruce Lee Movies</h6>')
     }
-    else if (score >= 16 && score <= 20){
-        $("#ranking").append('<img src="images/donald.jpg" height="300px" width="300px">');
+    else if (score >= 16 && score <= 20) {
+        $("#ranking").append('<img src="images/donald.jpg" height="500px" width="500px">');
         $("#ranking-description").append('<h2>You are talented, keep training!</h2>')
-        $("#ranking-description").append('<h6>You have been training but need more experience</h6>')
+        $("#ranking-description").append('<h6>You have been training hard but need some more experience</h6>')
     }
-    else if (score >= 21 && score <= 26){
-        $("#ranking").append('<img src="images/champion.jpg" height="300px" width="300px">');
+    else {
+        $("#ranking").append('<img src="images/champion.jpg" height="500px" width="500px">');
         $("#ranking-description").append('<h2>You have what it takes to be the World Champion!</h2>')
         $("#ranking-description").append('<h6>You have mastered the art of combat, no one can stop you!</h6>')
     }
@@ -282,4 +282,3 @@ $(document).on('click', '#reset', function () {
     showQuestion();
 })
 
-//----------------------------Facts Section Code here----------------------------//

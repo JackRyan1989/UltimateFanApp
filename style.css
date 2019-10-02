@@ -72,33 +72,38 @@ hr.style-four {
     color: #adad85;
     text-align: center;
     }
-    hr.style-four:after {
+	hr.style-four:after {
     display: inline-block;
     position: relative;
     top: -0.7em;
     font-size: 1.5em;
     padding: 0 0.25em;
     background: white;
-	}
+}
 	
-	h5 {
-		font-size: 35px;
-	}
+h5 {
+	font-size: 35px;
+}
 
-	hr.style-three {
-		height: 30px;
-		border-style: solid;
-		border-color: black;
-		border-width: 1px 0 0 0;
-		border-radius: 20px;
-		}
-		hr.style-three:before {
-		display: block;
-		content: "";
-		height: 30px;
-		margin-top: -31px;
-		border-style: solid;
-		border-color: black;
-		border-width: 0 0 1px 0;
-		border-radius: 20px;
-		}
+hr.style-three {
+	height: 30px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px 0 0 0;
+	border-radius: 20px;
+}
+hr.style-three:before {
+	display: block;
+	content: "";
+	height: 30px;
+	margin-top: -31px;
+	border-style: solid;
+	border-color: black;
+	border-width: 0 0 1px 0;
+	border-radius: 20px;
+}
+
+#fighters {
+	margin-left: 20px;
+	margin-right: 20px;
+}
