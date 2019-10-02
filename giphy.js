@@ -1,48 +1,48 @@
 $(document).ready(function () {
 
-//var fighterSelected = "";
+    //var fighterSelected = "";
 
-//creates newTopic onclick event
-// $("#newTopic").on("click", function () {
-//     var button = $("<button>");
-//     button.text($("#userTopic").val())
-//     button.addClass("ufcButton")
-//     $("#ufcButtons").append(button);
-//     attachEvent();
-// })
+    //creates newTopic onclick event
+    // $("#newTopic").on("click", function () {
+    //     var button = $("<button>");
+    //     button.text($("#userTopic").val())
+    //     button.addClass("ufcButton")
+    //     $("#ufcButtons").append(button);
+    //     attachEvent();
+    // })
 
 
-// //generates buttons used on page
-// //makeButtons();
-// function makeButtons() {
-//     $("#ufcButtons").empty();
+    // //generates buttons used on page
+    // //makeButtons();
+    // function makeButtons() {
+    //     $("#ufcButtons").empty();
 
-//     for (v in topic) {
-//         console.log(v)
-//         console.log(topic[v])
-//         var ufcButton = $("<button>");
-//         ufcButton.text(topic[v]);
-//         ufcButton.addClass("ufcButton")
-//         $("#ufcButtons").append(ufcButton);
-//     }
+    //     for (v in topic) {
+    //         console.log(v)
+    //         console.log(topic[v])
+    //         var ufcButton = $("<button>");
+    //         ufcButton.text(topic[v]);
+    //         ufcButton.addClass("ufcButton")
+    //         $("#ufcButtons").append(ufcButton);
+    //     }
 
-//     attachEvent();
-// }
-//Calls attach event function and clears current gifs when new gifs are created. 
-//function attachEvent() {
+    //     attachEvent();
+    // }
+    //Calls attach event function and clears current gifs when new gifs are created. 
+    //function attachEvent() {
     $("#submitButton").on("click", function () {
         var topic = $("#fighterInput").val().trim();
-        console.log(topic);
-       event.preventDefault();
-       console.log("Clicked");
+        //console.log(topic);
+        event.preventDefault();
+        //console.log("Clicked");
         $("#fighters").empty();
         var apiKey = "rNdXDLNYthIjN88XMIVsVMmBK57fR2jJ";
-        
+
         //fighterSelected = $(this).text();
-        var url = "https://api.giphy.com/v1/gifs/search?q="+topic+"&limit=10&api_key="+apiKey; 
-        
-        console.log(url);
-//populates images to the page
+        var url = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=10&api_key=" + apiKey;
+
+        //console.log(url);
+        //populates images to the page
         $.ajax({
             url: url,
             method: "GET"
@@ -51,14 +51,14 @@ $(document).ready(function () {
             //console.log(results);
             $.each(results, function () {
                 var item = this;
-                console.log(item)
+                //console.log(item)
                 var stillImageUrl = item.images.downsized_still.url;
-                console.log(stillImageUrl);
-//this animates the images
+                //console.log(stillImageUrl);
+                //this animates the images
                 var fighterCard = $("<div>")
                 fighterCard.addClass("card col-4")
                 var fighterImage = $("<img>").attr({
-                    src:item.images.original.url,
+                    src: item.images.original.url,
                     class: "img-fluid card-img-top mx-auto d-block",
                     id: "gif-img",
                     "data-still": item.images.original_still.url,
@@ -67,25 +67,25 @@ $(document).ready(function () {
                 });
 
                 fighterCard.append(fighterImage);
-//they animate when clicked
+                //they animate when clicked
                 fighterCard.on("click", function () {
-                    if (fighterImage.attr("data-state") === "still"){
+                    if (fighterImage.attr("data-state") === "still") {
                         fighterImage.attr("src", item.images.preview_gif.url)
                         fighterImage.attr("data-state", "animated")
                     };
-// //appends fighter ID to fighter card. 
-                     
+                    // //appends fighter ID to fighter card. 
+
                 });
-                $("#fighters").append(fighterCard); 
+                $("#fighters").append(fighterCard);
             });
 
         });
 
-   });
+    });
 });
 
 //makeButtons();
-    
+
 //});
-    
+
 

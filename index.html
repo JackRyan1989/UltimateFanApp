@@ -39,7 +39,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Find a Fighter/Event <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Find a Fighter/Event <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="quiz.html">UFC History</a>
@@ -61,7 +62,7 @@
 
         <!--Search section-->
         <div class="row text-center">
-            
+
         </div>
         <form>
             <div class="form-group">
@@ -86,9 +87,26 @@
     </div>
 
     <div id="fighters" class="row"></div>
-        
-            
-    
+
+
+    <!-- Modal for fighters not found: -->
+    <div class="modal fade" id="fighterFailModal" tabindex="-1" role="dialog" aria-labelledby="fighterFailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fighterFailModalLabel"> Fighter not found!
+                        Search again.</h5>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
     <!-- Modal for location not found: -->
     <div class="modal fade" id="locationFailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -107,24 +125,24 @@
             </div>
 
         </div>
-        </div>
+    </div>
 
 
-        <!-- Modal for bouts found: -->
-        <div class="modal fade" id="boutFoundModal" tabindex="-1" role="dialog" aria-labelledby="boutModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="boutModalLabel"> <span id="numBouts"></span> bouts found in <span
-                                id="foundLocSpan"></span>. <br> Get tickets below. </h5>
-                    </div>
-                    <div class="modal-body" id="boutList">
-                        <div class="row" id="eventNameList">
-                        </div>
+    <!-- Modal for bouts found: -->
+    <div class="modal fade" id="boutFoundModal" tabindex="-1" role="dialog" aria-labelledby="boutModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="boutModalLabel"> <span id="numBouts"></span> bouts found in <span
+                            id="foundLocSpan"></span>. <br> Get tickets below. </h5>
+                </div>
+                <div class="modal-body" id="boutList">
+                    <div class="row" id="eventNameList">
                     </div>
                 </div>
             </div>
+        </div>
 
 </body>
 
