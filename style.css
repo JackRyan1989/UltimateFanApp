@@ -56,3 +56,49 @@ margin-top: 5px;
   object-fit: contain;
    
 }
+
+.card {
+	border-style: inset;
+    border-color: gold;
+	border-width: 5px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+hr.style-four {
+    padding: 0;
+    border: none;
+    border-top: medium double #adad85;
+    color: #adad85;
+    text-align: center;
+    }
+    hr.style-four:after {
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+	}
+	
+	h5 {
+		font-size: 35px;
+	}
+
+	hr.style-three {
+		height: 30px;
+		border-style: solid;
+		border-color: black;
+		border-width: 1px 0 0 0;
+		border-radius: 20px;
+		}
+		hr.style-three:before {
+		display: block;
+		content: "";
+		height: 30px;
+		margin-top: -31px;
+		border-style: solid;
+		border-color: black;
+		border-width: 0 0 1px 0;
+		border-radius: 20px;
+		}

@@ -263,7 +263,7 @@ function showResults() {
         $("#ranking-description").append('<h2>You are talented, keep training!</h2>')
         $("#ranking-description").append('<h6>You have been training but need more experience</h6>')
     }
-    else if (score >= 21 && score <= 25){
+    else if (score >= 21 && score <= 26){
         $("#ranking").append('<img src="images/champion.jpg" height="300px" width="300px">');
         $("#ranking-description").append('<h2>You have what it takes to be the World Champion!</h2>')
         $("#ranking-description").append('<h6>You have mastered the art of combat, no one can stop you!</h6>')
