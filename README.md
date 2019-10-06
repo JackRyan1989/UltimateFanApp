@@ -1,5 +1,6 @@
 # GroupProject1
 First Group Project!
+<p>https://github.com/JackRyan1989/groupProject1</p>
 
 ## Overview
 The UFC Fight Club App allows users to search their favorite fighter, find an event, learn the history of the UFC, take a trivia quiz, or find the latest news.
