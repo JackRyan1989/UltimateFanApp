@@ -16,4 +16,4 @@ Page 2 allows the user to learn the history of the UFC, as well as learn some in
 Page 3 is the News Page. It is automatically populated with the most recent UFC news. The user can click an article and the link will take them to the relevant page to show the article or video. The user can also save articles for future reading.
 
 ### Link to Deployed Project
-https://jackryan1989.github.io/groupProject1/
+https://jackryan1989.github.io/UltimateFanApp/
