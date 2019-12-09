@@ -13,9 +13,55 @@ $(document).ready(function () {
 
         //Fighter search function:
         $("#searchOutput").empty();
+        $('#searchOutput').append('<iframe class="mx-auto" src="https://giphy.com/embed/3o7bu3XilJ5BOiSGic" width="120" height="120" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
         var userFighter = $("#fighterInput").val().trim().toLowerCase();
         var fighterSplit = userFighter.split(" ");
         var userFighterURL = (fighterSplit[0] + "-" + fighterSplit[1]);
+        fighterSearch(corsAnywhere, ufcURL, userFighterURL);
+        locationSearch();
+    });
+
+    //Location search function:
+    let locationSearch = function () {
+        var city = $("#cityInput").val().trim();
+        var keyWord = "ufc";
+        var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&apikey=" + ticketMasterAPI;
+        $("#eventNameList").empty();
+        $("#numBouts").empty();
+        $.ajax({
+            type: "GET",
+            url: tmURL,
+            async: true,
+            dataType: "json",
+            success: function (json) {
+                if (!(city === "")) {
+                    if (!(json._embedded)) {
+                        $("#locationFailModal").modal("toggle");
+                        $("#locationSpan").text(city);
+                    } else {
+                        $("#numBouts").append(json._embedded.events.length);
+                        $("#foundLocSpan").text(city);
+                    };
+                    //Loop through event.urls to create fight links:
+                    var eventURLs = [];
+                    var eventNames = [];
+                    for (i = 0; i < json._embedded.events.length; i++) {
+                        eventURLs.push(json._embedded.events[i].url);
+                        eventNames.push(json._embedded.events[i].name);
+                        eventURLCol = $("<a>").attr("href", eventURLs[i]).attr("target", "_blank").text(eventNames[i]);
+                        eventNameCol = $("<div>").addClass("m-2 p-2 border border-primary rounded").append(eventURLCol);
+                        $("#eventNameList").append(eventNameCol);
+                    };
+                    $("#boutFoundModal").modal("toggle");
+                };
+            },
+            error: function (xhr, status, err) {
+                // This time, we do not end up here!
+            }
+        })
+    }
+
+    let fighterSearch = function (corsAnywhere, ufcURL, userFighterURL) {
         $.get((corsAnywhere + ufcURL + userFighterURL), function (data) {
             var html = $(data);
             var headshotSRC = html[209].childNodes[15].childNodes[87].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[5].childNodes[1].src;
@@ -73,46 +119,10 @@ $(document).ready(function () {
             );
             fCard.append(cardIMG,
                 fBody);
+            $("#searchOutput").empty();
             $("#searchOutput").append(fCard);
-        });
-
-        //Location search function:
-        var city = $("#cityInput").val().trim();
-        var keyWord = "ufc";
-        var tmURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + keyWord + "&countryCode=US&city=" + city + "&apikey=" + ticketMasterAPI;
-        $("#eventNameList").empty();
-        $("#numBouts").empty();
-        $.ajax({
-            type: "GET",
-            url: tmURL,
-            async: true,
-            dataType: "json",
-            success: function (json) {
-                if (!(city === "")) {
-                    if (!(json._embedded)) {
-                        $("#locationFailModal").modal("toggle");
-                        $("#locationSpan").text(city);
-                    } else {
-                        $("#numBouts").append(json._embedded.events.length);
-                        $("#foundLocSpan").text(city);
-                    };
-                    //Loop through event.urls to create fight links:
-                    var eventURLs = [];
-                    var eventNames = [];
-                    for (i = 0; i < json._embedded.events.length; i++) {
-                        eventURLs.push(json._embedded.events[i].url);
-                        eventNames.push(json._embedded.events[i].name);
-                        eventURLCol = $("<a>").attr("href", eventURLs[i]).attr("target", "_blank").text(eventNames[i]);
-                        eventNameCol = $("<div>").addClass("m-2 p-2 border border-primary rounded").append(eventURLCol);
-                        $("#eventNameList").append(eventNameCol);
-                    };
-                    $("#boutFoundModal").modal("toggle");
-                };
-            },
-            error: function (xhr, status, err) {
-                // This time, we do not end up here!
-            }
-        });
-    });
+        })
+    }
 });
+
 
